@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Ditgial Clock Of Europe</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+            background-image: url('https://th.bing.com/th/id/R.0dc5b3f69d5143cfd434b4eadaf616ab?rik=OYVwuGWufiIQgQ&riu=http%3a%2f%2fwww.esa.int%2fvar%2fesa%2fstorage%2fimages%2fesa_multimedia%2fimages%2f2014%2f04%2fnorthern_europe_at_night%2f14480458-1-eng-GB%2fNorthern_Europe_at_night.jpg&ehk=iwq41lAiYPn%2bKxwllfuESpsQCMYud%2bYnVIpZ9dDp8TQ%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+
+        }
+
+        #title_container {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        #title {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0 ,0, 0.5 );
+        }
+
+        #subtitle {
+            font-family: 'Helvetica', Arial, sans-serif;
+            font-size: 18px;
+            font-weight: lighter;
+            color: #d8d6d6;
+            margin-top: -10px;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0,5);
+
+        }
+
+        #clock {
+            font-size: 60px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0 ,0, 0.5 );
+
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Digital Clock Of Europe</h1>
+    <h3 id="subtitle">Created by Sophia Parizzi Gallagher</h3>
+    <div id="clock">00:00:00</div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').innerText = timeString;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
